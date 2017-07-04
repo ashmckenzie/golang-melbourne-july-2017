@@ -2,7 +2,7 @@
 
 <!-- page_number: true -->
 
-# Visualising MQTT data using golang, InfluxDB and Grafana
+# Visualising MQTT data using Golang, InfluxDB and Grafana
 
 ## Ash McKenzie, Golang Melbourne
 #### July 4th, 2017
