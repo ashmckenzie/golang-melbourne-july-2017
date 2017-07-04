@@ -1,6 +1,8 @@
 # Visualising MQTT data using Golang, InfluxDB and Grafana
 
-Presentation given at Golang Melbourne, July 4th 2017.
+## Slides
+
+Presentation given at [Golang Melbourne, July 4th 2017](https://github.com/ashmckenzie/golang-melbourne-july-2017/raw/master/main.pdf)
 
 ![Talk_Architecture](./images/talk_architecture.png)
 
