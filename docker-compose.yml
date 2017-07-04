@@ -1,0 +1,60 @@
+influxdb:
+  image: influxdb:latest
+  container_name: influxdb
+  environment:
+    INFLUXDB_ADMIN_ENABLED: "true"
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+
+influxdb_setup:
+  image: influxdb:latest
+  command: influx -host influxdb -execute 'create database iot ; create database owntracks'
+  links:
+    - influxdb
+
+grafana:
+  image: grafana/grafana:latest
+  container_name: grafana
+  environment:
+    GF_INSTALL_PLUGINS: "grafana-worldmap-panel"
+  ports:
+    - "3000:3000"
+  links:
+    - influxdb
+
+mosquitto:
+  image: toke/mosquitto
+  container_name: mosquitto
+  ports:
+    - "1883:1883"
+    - "9001:9001"
+
+mqti:
+  image: ashmckenzie/mqti
+  container_name: mqti
+  command: /app/mqti forward --debug
+  volumes:
+    - ./docker/config.yaml:/app/config.yaml:ro
+  links:
+    - influxdb
+    - mosquitto
+
+temp_traffic_generator:
+  image: toke/mosquitto
+  container_name: temp_traffic_generator
+  command: "/bin/bash /app/temp_generator.sh"
+  volumes:
+    - ./docker/temp_generator.sh:/app/temp_generator.sh:ro
+  links:
+    - mosquitto
+
+geo_traffic_generator:
+  image: node:alpine
+  container_name: geo_traffic_generator
+  command: "/bin/sh /app/geo_generator.sh"
+  volumes:
+    - ./docker/geo_generator.sh:/app/geo_generator.sh:ro
+  links:
+    - mosquitto

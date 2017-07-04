@@ -1,0 +1,6 @@
+img[alt=MQTT_Logo] { height: 100px; float: right; }
+img[alt=ESP8266_Board] { height: 170px; float: right; }
+img[alt=Mosquitto_Logo] { width: 150px; float: right; }
+img[alt=InfluxDB_Logo] { width: 150px; float: right; }
+img[alt=Grafana_Logo] { width: 150px; float: right; }
+img[alt=ESP8266] { height: 160px; display: block; float: left; }
