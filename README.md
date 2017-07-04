@@ -60,4 +60,4 @@ The steps below assume Docker for Mac/Windows or via Linux, meaning exposed port
 
 14. Leave the name as 'Owntracks' and select 'influxdb-owntracks' from the 'Select a InfluxDB data source' drop-down
 
-15. Click 'Import'. Your new [IoT dashboard](http://localhost:3000/dashboard/db/owntracks?refresh=5s) should already be showing data!
+15. Click 'Import'. Your new [Owntracks dashboard](http://localhost:3000/dashboard/db/owntracks?refresh=5s) should already be showing data!
